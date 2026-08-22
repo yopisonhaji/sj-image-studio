@@ -53,14 +53,17 @@ export default function Sidebar() {
   return (
     <aside className="w-64 glass-panel border-r border-white/5 flex flex-col h-full shrink-0 z-10">
       <div className="p-6">
-        <Link href="/" className="flex items-center gap-3 group">
+        <a href="https://satujalan.id" className="flex items-center gap-3 group" title="Kembali ke satujalan.id">
           <img 
             src="/logo-sj-design.webp" 
             alt="SJ Design Logo" 
             className="w-10 h-10 object-contain group-hover:scale-110 transition-transform"
           />
-          <span className="text-xl font-bold text-white bg-clip-text">SJ Design</span>
-        </Link>
+          <div className="flex flex-col">
+            <span className="text-xl font-bold text-white leading-tight">SJ Design</span>
+            <span className="text-[10px] text-gray-400 font-medium">Powered by satujalan.id</span>
+          </div>
+        </a>
       </div>
       
       <nav className="flex-1 overflow-y-auto py-4 custom-scrollbar">
