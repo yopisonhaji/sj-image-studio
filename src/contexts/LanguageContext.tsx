@@ -32,7 +32,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
     
     if (!hasSelectedLanguage) {
-      setWelcomePopupOpen(true);
+      // setWelcomePopupOpen(true); // dinonaktifkan agar tidak muncul popup
     }
   }, []);
 
