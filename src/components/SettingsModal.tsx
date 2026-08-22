@@ -51,17 +51,25 @@ export default function SettingsModal() {
       >
         
         {/* Settings Sidebar */}
-        <div className="w-full md:w-72 bg-[#050811]/80 backdrop-blur-3xl border-r border-white/5 flex flex-col shrink-0">
-          <div className="p-8 pb-4">
-            <h2 className="text-2xl font-bold text-white tracking-tight flex items-center gap-3">
+        <div className="w-full md:w-72 bg-[#050811]/80 backdrop-blur-3xl md:border-r border-b border-white/5 flex flex-col shrink-0">
+          <div className="p-6 md:p-8 md:pb-4 flex justify-between items-center">
+            <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight flex items-center gap-3">
               <span className="w-8 h-8 rounded-full bg-blue-600 flex items-center justify-center">
                 <Globe className="w-4 h-4 text-white" />
               </span>
               Settings
             </h2>
+            
+            {/* Mobile Close Button */}
+            <button 
+              onClick={handleClose}
+              className="md:hidden p-2 text-gray-400 hover:text-white bg-white/5 hover:bg-white/10 rounded-full transition-colors"
+            >
+              <X className="w-5 h-5" />
+            </button>
           </div>
           
-          <nav className="flex-1 px-4 py-4 space-y-2 overflow-y-auto custom-scrollbar">
+          <nav className="flex px-4 py-4 md:space-y-2 gap-2 overflow-x-auto md:overflow-y-auto flex-row md:flex-col custom-scrollbar">
             {[
               { id: 'account', label: 'Account', icon: User },
               { id: 'appearance', label: 'Appearance', icon: Palette },
@@ -72,13 +80,13 @@ export default function SettingsModal() {
               <button
                 key={tab.id}
                 onClick={() => setActiveTab(tab.id)}
-                className={`w-full flex items-center gap-3 px-4 py-3 rounded-2xl transition-all font-medium text-sm ${
+                className={`flex-shrink-0 md:w-full flex items-center gap-2 md:gap-3 px-4 py-2.5 md:py-3 rounded-2xl transition-all font-medium text-sm md:text-sm ${
                   activeTab === tab.id 
                     ? 'bg-blue-600/10 text-blue-400 border border-blue-500/20 shadow-[0_0_15px_rgba(37,99,235,0.1)]' 
                     : 'text-gray-400 hover:text-white hover:bg-white/5 border border-transparent'
                 }`}
               >
-                <tab.icon className="w-5 h-5" />
+                <tab.icon className="w-4 h-4 md:w-5 md:h-5" />
                 {tab.label}
               </button>
             ))}
@@ -88,8 +96,8 @@ export default function SettingsModal() {
         {/* Main Content Area */}
         <div className="flex-1 flex flex-col bg-transparent relative">
           
-          {/* Top Bar with Close Button */}
-          <div className="flex justify-end p-6">
+          {/* Top Bar with Desktop Close Button */}
+          <div className="hidden md:flex justify-end p-6">
             <button 
               onClick={handleClose}
               className="p-3 text-gray-400 hover:text-white hover:bg-white/10 rounded-full transition-colors backdrop-blur-md"
